@@ -1,0 +1,8 @@
+# Uncomment the following to alter the default umask of
+# files and directories.
+
+# Default umask for files created by mysqld
+# UMASK=660
+
+# Default umask for directories created by mysqld
+# UMASK_DIR=700
