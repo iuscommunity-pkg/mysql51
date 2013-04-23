@@ -8,7 +8,7 @@
 %global name mysql51
 
 Name: %{name}
-Version: 5.1.68
+Version: 5.1.69
 Release: 1.ius%{?dist}
 Summary: MySQL client programs and shared libraries.
 License: GPL
@@ -66,6 +66,9 @@ Patch315: mysql-5.1.37-sysconfig.patch
 # Test structure has changed in 5.1.58
 #Patch316: mysql-5.1.54-disabled_tests.patch
 Patch317: mysql-5.1.61-disabled_tests.patch
+
+#Disable SSL_OP_NO_COMPRESSION as it is not available in openssl for RHEL 5
+Patch318: mysql-5.1.69-disable_SSL_OP_NO_COMPRESSION.patch
 
 Requires: %{name}-libs = %{version}-%{release}
 Requires: bash, grep, fileutils
@@ -236,6 +239,7 @@ sed -i "s|@@@mysql_server_docdir@@@|%{_docdir}|" my-51-verbose.cnf
 %patch315 -p1 -b .sysconfig
 #%patch316 -p1 -b .disabled_tests
 %patch317 -p1 -b .disabled_tests
+%patch318 -p1
 
 libtoolize --force
 aclocal
@@ -640,6 +644,11 @@ fi
 
 
 %changelog
+* Thu Apr 18 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.69-1.ius
+- Latest soruce from upstream, full changelog found at:
+  http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-69.html
+- Patch318 add as SSL_OP_NO_COMPRESSION is not available for RHEL 5 openssl
+
 * Mon Feb 04 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.68-1.ius
 - Latest soruce from upstream, full changelog found at:
   http://dev.mysql.com/doc/refman/5.1/en/news-5-1-68.html
