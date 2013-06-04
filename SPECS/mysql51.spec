@@ -8,7 +8,7 @@
 %global name mysql51
 
 Name: %{name}
-Version: 5.1.69
+Version: 5.1.70
 Release: 1.ius%{?dist}
 Summary: MySQL client programs and shared libraries.
 License: GPL
@@ -644,6 +644,10 @@ fi
 
 
 %changelog
+* Tue Jun 04 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.70-1.ius
+- Latest soruce from upstream, full changelog found at:
+  http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-70.html
+
 * Thu Apr 18 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.69-1.ius
 - Latest soruce from upstream, full changelog found at:
   http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-69.html
