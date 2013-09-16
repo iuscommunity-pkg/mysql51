@@ -1,8 +1,4 @@
-# Uncomment the following to alter the default umask of
-# files and directories.
+# Change timeout values defined within the initscript.
 
-# Default umask for files created by mysqld
-# UMASK=660
-
-# Default umask for directories created by mysqld
-# UMASK_DIR=700
+#STARTTIMEOUT=300
+#STOPTIMEOUT=300

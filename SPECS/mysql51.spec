@@ -9,7 +9,7 @@
 
 Name: %{name}
 Version: 5.1.71
-Release: 1.ius%{?dist}
+Release: 2.ius%{?dist}
 Summary: MySQL client programs and shared libraries.
 License: GPL
 Group: Applications/Databases
@@ -35,6 +35,7 @@ Source4: scriptstub.c
 Source5: my_config.h
 Source9: mysql-embedded-check.c
 Source10: README.mysql-docs
+Source11: mysqld.sysconfig
 
 Source100: my-51-terse.cnf
 Source101: my-51-verbose.cnf
@@ -345,6 +346,10 @@ mv %{buildroot}/usr/mysql-test $RPM_BUILD_ROOT%{_datadir}/mysql-test
 # 5.1.32 forgets to install the mysql-test README file
 install -m 0644 mysql-test/README $RPM_BUILD_ROOT%{_datadir}/mysql-test/README
 
+# Environment file
+install -m 755 -d $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
+install -m 644 %{SOURCE11} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/mysqld
+
 
 # install the archive_reader tool
 install -m 0755 storage/archive/archive_reader %{buildroot}%{_bindir}
@@ -601,6 +606,7 @@ fi
 %{_datadir}/mysql/config.*.ini
 
 /etc/rc.d/init.d/mysqld
+%config(noreplace) %{_sysconfdir}/sysconfig/mysqld
 %attr(0755,mysql,mysql) %dir /var/run/mysqld
 %attr(0755,mysql,mysql) %dir /var/lib/mysql
 %attr(0640,mysql,mysql) %config(noreplace) %verify(not md5 size mtime) /var/log/mysqld.log
@@ -644,7 +650,11 @@ fi
 
 
 %changelog
-* Fri Aug 02 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.71-i.ius
+* Mon Sep 16 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.71-2.ius
+- add mysqld.sysconfig to mysql51-server
+- increase timeouts in mysql.init
+
+* Fri Aug 02 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.71-1.ius
 - Latest soruce from upstream, full changelog found at:
   http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-71.html
 
