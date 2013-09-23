@@ -8,8 +8,8 @@
 %global name mysql51
 
 Name: %{name}
-Version: 5.1.71
-Release: 2.ius%{?dist}
+Version: 5.1.72
+Release: 1.ius%{?dist}
 Summary: MySQL client programs and shared libraries.
 License: GPL
 Group: Applications/Databases
@@ -650,6 +650,10 @@ fi
 
 
 %changelog
+* Mon Sep 23 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.72-1.us
+- Latest soruce from upstream, full changelog found at:
+  http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-72.html
+
 * Mon Sep 16 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.71-2.ius
 - add mysqld.sysconfig to mysql51-server
 - increase timeouts in mysql.init
