@@ -650,7 +650,7 @@ fi
 
 
 %changelog
-* Mon Sep 23 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.72-1.us
+* Mon Sep 23 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.72-1.ius
 - Latest soruce from upstream, full changelog found at:
   http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-72.html
 
