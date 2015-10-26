@@ -17,7 +17,8 @@ URL: http://www.mysql.com
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 # Regression tests take a long time, you can skip 'em with this
-%{!?runselftest:%global runselftest 1}
+#{!?runselftest:%global runselftest 1}
+%global runselftest 0
 
 # Upstream has a mirror redirector for downloads, so the URL is hard to
 # represent statically.  You can get the tarball by following a link from
@@ -650,6 +651,7 @@ fi
 %changelog
 * Thu Oct 22 2015 Carl George <carl.george@rackspace.com> - 5.1.73-1.ius
 - Latest upstream
+- Disable test suite
 
 * Mon Sep 23 2013 Ben Harper <ben.harper@rackspace.com> - 5.1.72-1.ius
 - Latest soruce from upstream, full changelog found at:
