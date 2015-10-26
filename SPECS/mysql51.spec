@@ -65,7 +65,6 @@ Patch209: mysql-5.0.67-bindir.patch
 Patch311: mysql-5.1.28-rc-mysqld_safe.patch 
 Patch315: mysql-5.1.37-sysconfig.patch 
 # Test structure has changed in 5.1.58
-#Patch316: mysql-5.1.54-disabled_tests.patch
 Patch317: mysql-5.1.61-disabled_tests.patch
 
 #Disable SSL_OP_NO_COMPRESSION as it is not available in openssl for RHEL 5
@@ -238,7 +237,6 @@ sed -i "s|@@@mysql_server_docdir@@@|%{_docdir}|" my-51-verbose.cnf
 %patch209 -p1 -b .bindir
 %patch311 -p1 -b .mysqld_safe
 %patch315 -p1 -b .sysconfig
-#%patch316 -p1 -b .disabled_tests
 %patch317 -p1 -b .disabled_tests
 %patch318 -p1
 
